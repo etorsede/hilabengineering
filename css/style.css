@@ -57,8 +57,10 @@
 }
 
 .logo-img {
-    height: 40px; /* Smaller logo */
-    width: auto;
+    height: 40px;
+    width: auto; /* maintain aspect ratio */
+    display: block; /* removes weird spacing */
+    object-fit: contain; /* makes it play nicely with containers */
 }
 
 .logo-text {
