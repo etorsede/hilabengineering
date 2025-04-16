@@ -39,25 +39,27 @@
     }
 }
 
-.logo-link {
-    color: white;
+.logo-container {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-size: 2.5rem; /* Bigger text */
-    font-weight: 700;  /* Bold */
-    letter-spacing: 1px;
+    color: white;
+    gap: 12px; /* space between image and text */
     transition: opacity 0.3s ease;
 }
 
-.logo-link:hover {
+.logo-container:hover {
     opacity: 0.8;
 }
 
-.logo-link:active {
-    opacity: 0.6;
+.logo-img {
+    height: 50px; /* adjust based on your logo size */
+    width: auto;
 }
 
-.logo-link {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+.logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-
 
