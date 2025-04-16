@@ -69,3 +69,6 @@
     letter-spacing: 0.5px;
 }
 
+p {
+    margin-top: 80px; /* or whatever value gives you the spacing you need */
+}
