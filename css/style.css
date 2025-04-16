@@ -39,3 +39,25 @@
     }
 }
 
+.logo-link {
+    color: white;
+    text-decoration: none;
+    font-size: 2.5rem; /* Bigger text */
+    font-weight: 700;  /* Bold */
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-link:active {
+    opacity: 0.6;
+}
+
+.logo-link {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
