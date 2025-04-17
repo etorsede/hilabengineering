@@ -34,20 +34,19 @@
 }
 
 @media (max-width: 768px) {
-  .about-container,
-  .contact-container {
-    position: static; /* remove absolute positioning */
-    display: block;
-    margin: 1rem auto; /* center horizontally */
-    text-align: center;
-    width: fit-content; /* or set a fixed width like 80% */
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    position: static !important;
+    padding-top: 1rem;
+    gap: 0.5rem;
   }
 
-  .logo-container {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin: 1rem auto;
+  .logo-container,
+  .about-container,
+  .contact-container {
+    position: static !important;
+    margin: 0.5rem auto;
     text-align: center;
   }
 
@@ -57,6 +56,12 @@
 
   .logo-text {
     font-size: 1.1rem;
+  }
+
+  .about-container,
+  .contact-container {
+    font-size: 1.1rem;
+    padding: 10px 20px;
   }
 }
 
@@ -141,4 +146,16 @@ html {
 
 footer {
   text-align: center;
+}
+
+.top-bar {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 10;
 }
