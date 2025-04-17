@@ -37,7 +37,7 @@
   .top-bar {
     flex-direction: column;
     align-items: center;
-    position: static !important;
+    position: static;
     padding-top: 1rem;
     gap: 0.5rem;
   }
@@ -45,8 +45,8 @@
   .logo-container,
   .about-container,
   .contact-container {
-    position: static !important;
-    margin: 0.5rem auto;
+    position: static !important;  /* Ensure it's static for mobile */
+    margin: 0.5rem auto;  /* Center and space them out */
     text-align: center;
   }
 
@@ -138,6 +138,7 @@ p {
     font-size: 1.4rem;
     padding: 15px 30px;
     border-radius: 10px;
+    z-index: 20; /* Make sure buttons are above other elements */
 }
 
 html {
