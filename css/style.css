@@ -34,9 +34,30 @@
 }
 
 @media (max-width: 768px) {
-    .custom-background {
-        background-attachment: scroll;
-    }
+  .about-container,
+  .contact-container {
+    position: static; /* remove absolute positioning */
+    display: block;
+    margin: 1rem auto; /* center horizontally */
+    text-align: center;
+    width: fit-content; /* or set a fixed width like 80% */
+  }
+
+  .logo-container {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
 }
 
 .logo-container {
