@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Welcome to HILAB Engineering</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/favicon-32x32.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
   <link rel="stylesheet" href="css/style.css">
+ <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLZC9W6Z30"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-WLZC9W6Z30');
+  </script>
 </head>
 <body class="custom-background">
 <div class="top-bar">
@@ -12,16 +22,18 @@
     <img src="img/HILAB_LOGO.jpg" alt="HILAB Logo" class="logo-img">
     <span class="logo-text">HILAB Engineering</span>
   </a>
+  <div class="nav-buttons">
+    <a href="#about-section" class="about-container">About</a>
+    <a href="#contact-section" class="contact-container">Contact</a>
+  </div>
 
-  <a href="#about-section" class="about-container">About</a>
-  <a href="#contact-section" class="contact-container">Contact</a>
 </div>
 
-<div style="height: 10vh;"></div>
+<div style="height: 30vh;"></div>
 
   <section id="home-section">
-    <h1>Welcome</h1>
-    <p>Lorem ipsum</p>
+    <h1>Who we are</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </section>
 <div style="height: 100vh;"></div>
 
@@ -29,14 +41,14 @@
   <!-- About Section -->
   <section id="about-section">
     <h2>About</h2>
-    <p>Lorem ipsum</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </section>
 <div style="height: 100vh;"></div>
 
   <!-- Contact Section -->
   <section id="contact-section">
     <h2>Contact</h2>
-    <p>Lorem ipsum</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </section>
 
   <div style="height: 150vh;"></div>
@@ -46,27 +58,41 @@
   </footer>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const hash = window.location.hash;
 
-      const hash = window.location.hash;
+    if (hash) {
+      const targetEl = document.querySelector(hash);
 
-      //Remove the hash from the URL to prevent auto-scroll
-      history.replaceState(null, '', window.location.pathname + window.location.search);
+      if (targetEl) {
+        // Prevent auto-scroll to hash
+        window.scrollTo(0, 0);
 
-      window.scrollTo(0, 0);
+        // Wait a moment and scroll manually
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+          history.replaceState(null, null, ' ');
+        }, 10);
+      }
+    }
 
-      /*
-      setTimeout(() => {
-        const target = document.querySelector(hash);
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
+          history.replaceState(null, null, ' ');
         }
-      }, 300);
-      */
-    }
+      });
+    });
   });
 </script>
+
 
 </body>
 </html>
