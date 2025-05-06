@@ -178,3 +178,26 @@ footer {
 #contact-section {
   scroll-margin-top: 20px; /* or whatever spacing you want */
 }
+
+#contact-section form {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+#contact-section input,
+#contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: none;
+}
+
+#contact-section label {
+  font-weight: bold;
+}
