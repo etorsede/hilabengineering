@@ -40,9 +40,33 @@
 
   <!-- About Section -->
   <section id="about-section">
-    <h2>About</h2>
-    <p>Hej, vi heter Eric och David! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </section>
+  <h2>About</h2>
+  <div class="team-profile-container">
+    <!-- Card 1 -->
+    <div class="profile-card" id="card1">
+      <img src="img/Avt1.jpg" alt="David" class="profile-image" id="img1">
+      <div class="profile-info">
+        <h3 id="name1">David Carlsson</h3>
+        <p id="desc1">CO-founder and HIL development Engineer</p>
+        <div class="arrow right" onclick="toggleDescription(1)">&#8594;</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="profile-card" id="card2">
+      <img src="img/anti.jpg" alt="Eric" class="profile-image" id="img2">
+      <div class="profile-info">
+        <h3 id="name2">Eric Torsede</h3>
+        <p id="desc2">CO-founder and HIL development Engineer</p>
+        <div class="arrow right" onclick="toggleDescription(2)">&#8594;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>Contact us at info@hilabengineering.se</p>
+  </footer>
 <div style="height: 100vh;"></div>
 
   <!-- Contact Section -->
@@ -101,6 +125,43 @@
       });
     });
   });
+</script>
+<script>
+const profiles = {
+  1: {
+    name: "David Carlsson",
+    short: "CO-founder and HIL development Engineer",
+    full: "David is a development engineer specializing in HIL. With over 6 years of experience in the automotive field, he has worked with almost every aspect of early software development.",
+    image: "img/Avt1.jpg",
+    showingFull: false
+  },
+  2: {
+    name: "Eric Torsede",
+    short: "CO-founder and HIL development Engineer",
+    full: "Eric is a development engineer specializing in HIL. With over 6 years of experience in the automotive field, he has worked with almost every aspect of early software development.",
+    image: "img/anti.jpg",
+    showingFull: false
+  }
+};
+
+function toggleDescription(cardId) {
+  const profile = profiles[cardId];
+  const descEl = document.getElementById(`desc${cardId}`);
+  const imgEl = document.getElementById(`img${cardId}`);
+
+  // Toggle between short and full descriptions
+  if (profile.showingFull) {
+    descEl.textContent = profile.short;
+    imgEl.style.display = 'block'; // Show the image when showing the short description
+  } else {
+    descEl.textContent = profile.full;
+    imgEl.style.display = 'none';  // Hide the image when showing the full description
+  }
+
+  profile.showingFull = !profile.showingFull;
+}
+
+
 </script>
 
 

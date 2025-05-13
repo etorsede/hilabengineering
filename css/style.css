@@ -171,6 +171,76 @@ footer {
   z-index: 10;
 }
 
+.team-profile-container {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
+  gap: 60px; /* Space between the cards */
+  margin: 60px auto;
+  max-width: 1400px;
+  flex-wrap: wrap; /* This ensures it can wrap on smaller screens */
+}
+
+.profile-card {
+  position: relative;
+  width: 700px; /* Width of each card */
+  height: 350px; /* Height of each card */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex; /* Flexbox to make the content and image side by side */
+}
+
+.profile-image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.profile-info {
+  width: 50%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  text-align: left;
+  color: black;
+}
+
+.profile-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+  color: black;
+}
+
+.profile-info p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Arrow styling: keep it to the right, centered vertically */
+.arrow.right {
+  position: absolute;
+  right: 10px;  /* Set the right distance from the card edge */
+  top: 85%;     /* Center vertically within the card */
+  transform: translateY(-50%);  /* Exactly center it vertically */
+  font-size: 2rem;
+  cursor: pointer;
+  background: #f0f0f0;
+  border-radius: 50%;  /* Circular shape */
+  padding: 10px 14px;
+  transition: background 0.2s;
+  z-index: 1;  /* Make sure it stays above the content */
+}
+
+.arrow.right:hover {
+  background: #ccc;
+}
+
 #about-section {
   scroll-margin-top: 20px; /* or whatever spacing you want */
 }
