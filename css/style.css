@@ -63,7 +63,7 @@
     font-size: 1.1rem;
     padding: 10px 20px;
     text-decoration: none;
-    color: inherit; /* Keeps link styling neutral unless you want blue/underline */
+    color: inherit;
   }
 
   .logo-img {
@@ -148,7 +148,7 @@ p {
     font-size: 1.4rem;
     padding: 15px 30px;
     border-radius: 10px;
-    z-index: 20; /* Make sure buttons are above other elements */
+    z-index: 20;
 }
 
 html {
@@ -157,6 +157,18 @@ html {
 
 footer {
   text-align: center;
+}
+
+.team-profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  margin: 60px auto;
+  max-width: 1400px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .top-bar {
@@ -171,25 +183,63 @@ footer {
   z-index: 10;
 }
 
-.team-profile-container {
-  display: flex;
-  justify-content: center; /* Center the cards horizontally */
-  align-items: flex-start; /* Align cards to the top */
-  gap: 60px; /* Space between the cards */
-  margin: 60px auto;
-  max-width: 1400px;
-  flex-wrap: wrap; /* This ensures it can wrap on smaller screens */
+.profile-card {
+  width: 700px;
+  height: 350px;
+  perspective: 1000px;
 }
 
-.profile-card {
+.card-inner {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 700px; /* Width of each card */
-  height: 350px; /* Height of each card */
-  background: white;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.profile-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden;
   overflow: hidden;
-  display: flex; /* Flexbox to make the content and image side by side */
+  display: flex;
+}
+
+.card-front {
+  background: #aa64d9;
+  flex-direction: row;
+  color: white
+}
+
+.card-back {
+
+  background: #aa64d9;
+  transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.back-info {
+  background: #aa64d9;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  color: white
+}
+
+.back-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: white
 }
 
 .profile-image {
@@ -202,72 +252,246 @@ footer {
 
 .profile-info {
   width: 50%;
-  padding: 30px 20px;
+  padding: 30px 20px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  text-align: left;
-  color: black;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
 
 .profile-info h3 {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 1.6rem;
-  color: black;
+  color: white;
 }
 
 .profile-info p {
+  margin: 0;
   font-size: 1.1rem;
-  line-height: 1.5;
+  max-width: 250px;
+  color: white
 }
 
-/* Arrow styling: keep it to the right, centered vertically */
+
 .arrow.right {
   position: absolute;
-  right: 10px;  /* Set the right distance from the card edge */
-  top: 85%;     /* Center vertically within the card */
-  transform: translateY(-50%);  /* Exactly center it vertically */
+  right: 10px;
+  bottom: 20px;
   font-size: 2rem;
   cursor: pointer;
   background: #f0f0f0;
-  border-radius: 50%;  /* Circular shape */
+  border-radius: 50%;
   padding: 10px 14px;
   transition: background 0.2s;
-  z-index: 1;  /* Make sure it stays above the content */
+  z-index: 1;
 }
 
 .arrow.right:hover {
   background: #ccc;
 }
-
 #about-section {
-  scroll-margin-top: 20px; /* or whatever spacing you want */
+  scroll-margin-top: 20px;
 }
 
-#contact-section {
-  scroll-margin-top: 20px; /* or whatever spacing you want */
+#contact-section.custom-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  padding: 0;
 }
+
+
+.contact-heading {
+  position: absolute;
+  top: 20px;
+  font-size: 2rem;
+  margin: 0;
+  color: white;
+}
+
+
+.contact-wrapper {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.contact-email {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.contact-email a {
+  color: #9a79ff;
+  text-decoration: underline;
+}
+
 
 #contact-section form {
-  max-width: 500px;
-  margin: 2rem auto;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 #contact-section input,
 #contact-section textarea {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
+  font-size: 1rem;
 }
 
 #contact-section label {
   font-weight: bold;
+  text-align: left;
 }
+
+.custom-button {
+  background-color: #7f5af0;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #9a79ff;
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .team-profile-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .profile-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back {
+    height: 300;
+    flex-direction: row;
+    border: none;
+    margin: 0;
+  }
+
+  .card-inner {
+    min-height: 300px;
+  }
+
+  .profile-image {
+    width: 60%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .profile-info {
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+  }
+
+  .arrow.right {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  background: #f0f0f0;
+  border-radius: 50%;
+  padding: 10px 14px;
+  transition: background 0.2s;
+  z-index: 1;
+}
+}
+
+.intro-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: left;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  line-height: 1.6;
+}
+
+.intro-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+}
+
+.intro-text p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    padding: 0 16px;
+    margin: 40px auto;
+  }
+
+ .intro-section h1 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.intro-text p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+}
+
+#home-section {
+  margin-top: 140px;
+}
+
+.section-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+
