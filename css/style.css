@@ -227,15 +227,15 @@ footer {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-
+  overflow: auto; /* or unset it */
 }
 
 .back-info {
-  background: #aa64d9;
+  overflow-x: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   padding: 10px;
-  text-align: left;
-  width: 100%;
-  color: white
 }
 
 .back-info p {
@@ -243,6 +243,8 @@ footer {
   line-height: 1.6;
   margin-bottom: 20px;
   color: white
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .profile-image {
@@ -392,6 +394,7 @@ footer {
     margin-top: 0px;
     box-sizing: border-box;
     width: 100%;
+    font-size: 0.85rem !important;
   }
 
   .profile-card {
@@ -410,6 +413,8 @@ footer {
     flex-direction: row;
     border: none;
     margin: 0;
+    font-size: initial;
+
   }
 
   .card-inner {
@@ -525,6 +530,37 @@ footer {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.6px;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-header {
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .profile-info p,
+  .back-info p {
+    font-size: 0.85rem !important;
+    line-height: 1.4;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back {
+    font-size: initial; /* cancel earlier 0.5rem if applied globally */
+  }
 }
 
 
