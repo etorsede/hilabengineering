@@ -447,7 +447,7 @@ footer {
   transform: translateY(2px); /* fine-tune vertical centering */
 }
  .arrow.left {
-  transform: rotate(180deg) translateY(-1.5px); /* flip and nudge up */
+  transform: rotate(180deg) translateY(-2.5px); /* flip and nudge up */
 }
 
 }
