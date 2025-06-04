@@ -446,9 +446,9 @@ footer {
   border-radius: 50%;
   transform: translateY(2px); /* fine-tune vertical centering */
 }
- .arrow.left {
-  transform: rotate(180deg) translateY(-2.5px); /* flip and nudge up */
-}
+ .arrow.right.left-align {
+    transform: translateY(-1px); /* adjust for the "←" visual offset */
+  }
 
 }
 
