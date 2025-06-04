@@ -507,7 +507,8 @@ footer {
   font-weight: bold;
   color: #f4f4f4;
   margin-top: 1rem;
-  text-align: center;
+  text-align: left;
+  hyphens: auto;
   letter-spacing: 0.5px;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
@@ -515,6 +516,17 @@ footer {
   border-left: 4px solid #9a79ff;
   border-radius: 4px;
 }
+
+  .intro-text p.tagline {
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+ .emphasis {
+    font-size: 0.45rem; /* adjust as needed */
+    letter-spacing: 0.3px;
+  }
+
 
 }
 
@@ -575,7 +587,7 @@ footer {
 @media (max-width: 768px) {
   .profile-info p,
   .back-info p {
-    font-size: 0.85rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.4;
   }
 
