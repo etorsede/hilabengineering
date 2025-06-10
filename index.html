@@ -115,7 +115,7 @@
 </section>
 
 <!-- Contact Section -->
-<div style="height: 100vh;"></div>
+<div style="height: 80vh;"></div>
 <section id="contact-section" class="custom-background">
   <h2 class="section-heading contact-heading">Contact Us</h2>
 
@@ -260,8 +260,27 @@ function flipCard(cardId) {
   });
 </script>
 
+<script>let lastScrollTop = 0;
+let lastScrollY = window.scrollY;
+let scrollThreshold = 1;
 
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  const topBar = document.querySelector('.top-bar');
 
+  if (currentScrollY > lastScrollY + 10) {
+    // Scrolled down more than 10px
+    topBar.classList.add('nav-up');
+    topBar.classList.remove('nav-down');
+  } else if (lastScrollY - currentScrollY > scrollThreshold) {
+    // Scrolled up more than threshold
+    topBar.classList.add('nav-down');
+    topBar.classList.remove('nav-up');
+  }
+
+  lastScrollY = currentScrollY;
+});
+</script>
 
 
 </body>

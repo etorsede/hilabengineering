@@ -36,16 +36,36 @@
 @media (max-width: 768px) {
   .top-bar {
     position: sticky !important;
-    top: 0.1rem;
+    top: 0  ;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     z-index: 1000;
+    transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: translateY(0);
+    will-change: transform;
     gap: 0.5rem;
-    padding: 0.1rem 1rem 0.1rem
+    padding: 0 1rem;
     background: rgba(0, 0, 0, 0.0);
     backdrop-filter: blur(5px);
+    overflow: hidden;
   }
+
+  .nav-up {
+  transform: translateY(-100%);
+  background: transparent !important;
+  backdrop-filter: none !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
+}
+
+    .nav-down {
+  transform: translateY(0);
+    }
 
   .logo-container,
   .about-container,
@@ -98,7 +118,8 @@
 
     background-color: rgba(0, 0, 0, 0.5);
     padding: 8px 14px;
-    border-radius: 8px;
+    border: 1px solid white;
+    border-radius: 6px;
 }
 
 .logo-img {
@@ -132,7 +153,8 @@ p {
 
     background-color: rgba(0, 0, 0, 0.5);
     padding: 8px 14px;
-    border-radius: 8px;
+    border: 1px solid white;
+    border-radius: 6px;
 }
 
 .contact-container {
@@ -149,7 +171,8 @@ p {
 
     background-color: rgba(0, 0, 0, 0.5);
     padding: 8px 14px;
-    border-radius: 8px;
+    border: 1px solid white;
+    border-radius: 6px;
 }
 
 .about-container,
@@ -166,6 +189,8 @@ html {
 
 footer {
   text-align: center;
+  margin-top: 2 0px; /* reduce if it's large */
+  padding: 10px 0;
 }
 
 .team-profile-container {
@@ -313,7 +338,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   position: relative;
   padding: 0;
 }
@@ -325,8 +350,8 @@ footer {
   font-size: 2rem;
   margin: 0;
   color: white;
+  text-align: left;
 }
-
 
 .contact-wrapper {
   background-color: rgba(0, 0, 0, 0.6);
@@ -349,7 +374,6 @@ footer {
   color: #9a79ff;
   text-decoration: underline;
 }
-
 
 #contact-section form {
   display: flex;
