@@ -30,31 +30,25 @@
 </div>
 
 <section id="home-section" class="intro-section">
-  <h1 class="section-heading animate-header">Who We Are</h1>
+  <div class="intro-fade-group">
+  <h1 id="header-text" class="section-heading animate-header">Who We Are</h1>
   <div class="intro-text">
-    <p>
-      Hi, we are HILAB — a consultant company specializing in hardware-in-the-loop (HIL) development.
-    </p>
-    <p>
-      When the automotive industry shifted toward being more software-defined, it fundamentally changed how systems are built. Instead of integrating decentralized systems from suppliers, today’s vehicles rely on in-house developed software running on centralized ECUs.
-    </p>
-    <p>
-      This change provides more flexibility and value for customers, but it also raises the bar for testing and verification. Now, software needs to meet the high standards expected in modern automotive environments. That's why HIL and SIL test environments are more essential than ever.
-    </p>
-    <p>
-      HILAB's founders, Eric and David, saw the growing need for advanced software testing and the lack of deep expertise in the field — and created HILAB to solve exactly that.
-    </p>
-    <p class="tagline">
+  <p class="fade-item">Hi, we are HILAB — a consultant company specializing in hardware-in-the-loop (HIL) development.</p>
+  <p class="fade-item">When the automotive industry shifted toward being more software-defined, it fundamentally changed how systems are built. Instead of integrating decentralized systems from suppliers, today’s vehicles rely on in-house developed software running on centralized ECUs.</p>
+  <p class="fade-item">This change provides more flexibility and value for customers, but it also raises the bar for testing and verification. Now, software needs to meet the high standards expected in modern automotive environments. That's why HIL and SIL test environments are more essential than ever.</p>
+  <p class="fade-item">HILAB's founders, Eric and David, saw the growing need for advanced software testing and the lack of deep expertise in the field — and created HILAB to solve exactly that.</p>
+  <p class="fade-item tagline">
     We're a company built from the ground up to deliver high-quality, real hardware/software testing —
     <span class="emphasis">From Sensor To Actuator</span>
-    </p>
+  </p>
+  </div>
   </div>
 </section>
 
 <div style="height: 100vh;"></div>
 <section id="about-section">
   <h2 class="section-heading">About</h2>
-
+  <div class="team-profile-fade-group">
   <div class="team-profile-container">
     <!-- Card 1 -->
     <div class="profile-card" id="card1">
@@ -117,6 +111,7 @@
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 <!-- Contact Section -->
@@ -190,6 +185,83 @@ function flipCard(cardId) {
   card.classList.toggle("flipped");
 }
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const group = document.querySelector('.team-profile-fade-group');
+    if (!group) return;
+
+    const triggerOffset = group.getBoundingClientRect().top + window.scrollY; // where it starts on the page
+    const effectStart = triggerOffset - 80; // start just before sticky nav
+    const effectDistance = 300; // how long the effect runs
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const delta = scrollY - effectStart;
+
+      if (delta <= 0) {
+        // Reset when above effectStart
+        group.style.transform = 'scale(1) translateY(0)';
+        group.style.opacity = 1;
+        group.style.filter = 'blur(0px)';
+      } else if (delta > 0 && delta <= effectDistance) {
+        // Progressively shrink, fade, blur, and move upward
+        const progress = delta / effectDistance;
+        const scale = 1 - progress * 0.5; // from 1 to 0.5
+        const opacity = 1 - progress;     // from 1 to 0
+        const blur = progress * 5;        // up to 5px
+        const translateY = -progress * 30; // subtle upward drift
+
+        group.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+        group.style.opacity = opacity;
+        group.style.filter = `blur(${blur}px)`;
+      } else {
+        // After full effect
+        group.style.transform = 'scale(0.5) translateY(-30px)';
+        group.style.opacity = 0;
+        group.style.filter = 'blur(5px)';
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeItems = document.querySelectorAll('.fade-item');
+    const triggerLine = 120; // Y offset from top (where sticky nav starts)
+
+    function animateOnScroll() {
+      fadeItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const topOffset = rect.top;
+
+        if (topOffset < triggerLine) {
+          // How far past the top the item has gone (positive)
+          const past = triggerLine - topOffset;
+          const progress = Math.min(past / 150, 1); // normalize progress 0–1
+          const scale = 1 - progress * 0.4;
+          const opacity = 1 - progress;
+          const blur = progress * 4;
+
+          item.style.transform = `scale(${scale})`;
+          item.style.opacity = opacity;
+          item.style.filter = `blur(${blur}px)`;
+        } else {
+          // Reset if not reached the trigger line
+          item.style.transform = 'scale(1)';
+          item.style.opacity = 1;
+          item.style.filter = 'blur(0px)';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // run on load
+  });
+</script>
+
+
+
 
 
 </body>
