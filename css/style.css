@@ -61,7 +61,7 @@
   padding: 0 !important;
   height: 0 !important;
   overflow: hidden;
-}
+    }
 
     .nav-down {
   transform: translateY(0);
@@ -93,8 +93,19 @@
     padding: 10px 20px;
     text-decoration: none;
     color: inherit;
-  }
 
+
+  }
+  #contact-section {
+    margin-top: 2rem !important;
+    padding-top: 2rem !important;
+   }
+
+  #about-section {
+    margin-top: 5rem !important;
+    padding-top: 5rem !important;
+    scroll-margin-top: 150px;
+   }
   .logo-img {
     height: 30px;
   }
@@ -140,21 +151,20 @@ p {
 }
 
 .about-container {
-    position: absolute;
-    top: 1rem;
-    right: 11rem;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    gap: 10px;
-    z-index: 10;
-    cursor: pointer;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 8px 14px;
-    border: 1px solid white;
-    border-radius: 6px;
+  position: absolute;
+  top: 1rem;
+  right: 11rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 10px;
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 14px;
+  border: 1px solid white;
+  border-radius: 6px;
 }
 
 .contact-container {
@@ -177,6 +187,7 @@ p {
 
 .about-container,
 .contact-container {
+
     font-size: 1.4rem;
     padding: 15px 30px;
     border-radius: 10px;
@@ -198,7 +209,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 30px;
+  gap: 2rem;
   padding: 10px 24px 20px;
   margin: 0 auto;
   width: 100%;
@@ -206,6 +217,7 @@ footer {
   box-sizing: border-box;
   position: relative;
   z-index: 2;
+  margin-top: 2rem
 }
 
 .top-bar {
@@ -331,7 +343,13 @@ footer {
   background: #ccc;
 }
 #about-section {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 80px;
+  text-align: center;
+  font-size: 2rem;
+  max-width: 100%;
+  background: none;
+  padding: 0.5rem 0;
+  margin: 1rem auto 0.5rem;
 }
 
 #contact-section.custom-background {
@@ -341,6 +359,7 @@ footer {
   height: 80vh;
   position: relative;
   padding: 0;
+  scroll-margin-top: 150px;
 }
 
 
@@ -388,6 +407,27 @@ footer {
   border-radius: 8px;
   border: none;
   font-size: 1rem;
+
+}
+
+footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #9a79ff; /* or any accent color */
+}
+
+#header-text {
+
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0);
+  padding: 1rem 0;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 #contact-section label {
@@ -424,7 +464,7 @@ footer {
     align-items: center;
     gap: 10px;
     padding: 10px 20px 20px;
-    margin-top: 0px;
+    margin-top: 4px;
     box-sizing: border-box;
     width: 100%;
     font-size: 0.85rem !important;
@@ -633,10 +673,10 @@ footer {
 }
 
 .animate-header {
-  opacity: 0;
   animation: fadeSlideUp 1s ease-out forwards;
   animation-delay: 0.3s;
 }
+
 
 @media (max-width: 768px) {
   .profile-info p,

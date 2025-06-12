@@ -17,6 +17,7 @@
   </script>
 </head>
 <body class="custom-background">
+<div id="top" style="position: relative; top: -60px;"></div>
 <div class="top-bar">
   <a href="https://hilabengineering.se" class="logo-container">
     <img src="img/HILAB_LOGO.jpg" alt="HILAB Logo" class="logo-img">
@@ -45,9 +46,9 @@
   </div>
 </section>
 
-<div style="height: 100vh;"></div>
+<div style="height: 20vh;"></div>
 <section id="about-section">
-  <h2 class="section-heading">About</h2>
+  <h2 class="section-heading">About Us</h2>
   <div class="team-profile-fade-group">
   <div class="team-profile-container">
     <!-- Card 1 -->
@@ -112,10 +113,11 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- Contact Section -->
-<div style="height: 80vh;"></div>
+<div style="height: 20vh;"></div>
 <section id="contact-section" class="custom-background">
   <h2 class="section-heading contact-heading">Contact Us</h2>
 
@@ -142,6 +144,12 @@
 
   <footer>
     <p>© 2025 HILAB Engineering. All rights reserved.</p>
+    <p>
+    Website developed by
+    <a href="#top" style="color: inherit; text-decoration: underline;">
+      HILAB Engineering
+    </a>
+  </p>
   </footer>
 
 <script>
@@ -187,98 +195,120 @@ function flipCard(cardId) {
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const group = document.querySelector('.team-profile-fade-group');
-    if (!group) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const group = document.querySelector('.team-profile-fade-group');
+  const fadeItems = document.querySelectorAll('.fade-item');
+  const header = document.getElementById('header-text');
+  const topBar = document.querySelector('.top-bar');
+  const triggerLine = 80;
+  const scrollThreshold = 1;
 
-    const triggerOffset = group.getBoundingClientRect().top + window.scrollY; // where it starts on the page
-    const effectStart = triggerOffset - 80; // start just before sticky nav
-    const effectDistance = 300; // how long the effect runs
+  let headerAnimated = false;
+  let lastScrollY = window.scrollY;
+  let ticking = false;
 
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const delta = scrollY - effectStart;
+  // Header animation complete after delay
+  setTimeout(() => { headerAnimated = true; }, 1300);
 
-      if (delta <= 0) {
-        // Reset when above effectStart
-        group.style.transform = 'scale(1) translateY(0)';
-        group.style.opacity = 1;
-        group.style.filter = 'blur(0px)';
-      } else if (delta > 0 && delta <= effectDistance) {
-        // Progressively shrink, fade, blur, and move upward
-        const progress = delta / effectDistance;
-        const scale = 1 - progress * 0.5; // from 1 to 0.5
-        const opacity = 1 - progress;     // from 1 to 0
-        const blur = progress * 5;        // up to 5px
-        const translateY = -progress * 30; // subtle upward drift
+  function animateFadeItems() {
+    fadeItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const topOffset = rect.top;
 
-        group.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-        group.style.opacity = opacity;
-        group.style.filter = `blur(${blur}px)`;
+      if (topOffset < triggerLine) {
+        const past = triggerLine - topOffset;
+        const progress = Math.min(past / 350, 1);
+        const scale = 1 - progress * 0.4;
+        const opacity = 1 - progress;
+        const blur = progress * 4;
+
+        item.style.transform = `scale(${scale})`;
+        item.style.opacity = opacity;
+        item.style.filter = `blur(${blur}px)`;
       } else {
-        // After full effect
-        group.style.transform = 'scale(0.5) translateY(-30px)';
-        group.style.opacity = 0;
-        group.style.filter = 'blur(5px)';
+        item.style.transform = 'scale(1)';
+        item.style.opacity = 1;
+        item.style.filter = 'blur(0px)';
       }
     });
-  });
-</script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const fadeItems = document.querySelectorAll('.fade-item');
-    const triggerLine = 120; // Y offset from top (where sticky nav starts)
+    if (headerAnimated && fadeItems.length) {
+      const lastItem = fadeItems[fadeItems.length - 1];
+      const lastRect = lastItem.getBoundingClientRect();
 
-    function animateOnScroll() {
-      fadeItems.forEach(item => {
-        const rect = item.getBoundingClientRect();
-        const topOffset = rect.top;
-
-        if (topOffset < triggerLine) {
-          // How far past the top the item has gone (positive)
-          const past = triggerLine - topOffset;
-          const progress = Math.min(past / 150, 1); // normalize progress 0–1
-          const scale = 1 - progress * 0.4;
-          const opacity = 1 - progress;
-          const blur = progress * 4;
-
-          item.style.transform = `scale(${scale})`;
-          item.style.opacity = opacity;
-          item.style.filter = `blur(${blur}px)`;
-        } else {
-          // Reset if not reached the trigger line
-          item.style.transform = 'scale(1)';
-          item.style.opacity = 1;
-          item.style.filter = 'blur(0px)';
-        }
-      });
+      if (lastRect.bottom < triggerLine + 50) {
+        const headerFade = Math.max(0, lastRect.bottom / 100);
+        header.style.opacity = headerFade;
+        header.style.transform = `scale(${headerFade})`;
+      } else {
+        header.style.opacity = 1;
+        header.style.transform = 'scale(1)';
+      }
     }
-
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // run on load
-  });
-</script>
-
-<script>let lastScrollTop = 0;
-let lastScrollY = window.scrollY;
-let scrollThreshold = 1;
-
-window.addEventListener('scroll', () => {
-  const currentScrollY = window.scrollY;
-  const topBar = document.querySelector('.top-bar');
-
-  if (currentScrollY > lastScrollY + 10) {
-    // Scrolled down more than 10px
-    topBar.classList.add('nav-up');
-    topBar.classList.remove('nav-down');
-  } else if (lastScrollY - currentScrollY > scrollThreshold) {
-    // Scrolled up more than threshold
-    topBar.classList.add('nav-down');
-    topBar.classList.remove('nav-up');
   }
 
-  lastScrollY = currentScrollY;
+  function animateGroupFade() {
+    if (!group) return;
+
+    const triggerOffset = group.getBoundingClientRect().top + window.scrollY;
+    const effectStart = triggerOffset - 20;
+    const effectDistance = 300;
+    const scrollY = window.scrollY;
+    const delta = scrollY - effectStart;
+
+    if (delta <= 0) {
+      group.style.transform = 'scale(1) translateY(0)';
+      group.style.opacity = 1;
+      group.style.filter = 'blur(0px)';
+    } else if (delta <= effectDistance) {
+      const progress = delta / effectDistance;
+      const scale = 1 - progress * 0.5;
+      const opacity = 1 - progress;
+      const blur = progress * 5;
+      const translateY = -progress * 30;
+
+      group.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+      group.style.opacity = opacity;
+      group.style.filter = `blur(${blur}px)`;
+    } else {
+      group.style.transform = 'scale(0.5) translateY(-30px)';
+      group.style.opacity = 0;
+      group.style.filter = 'blur(5px)';
+    }
+  }
+
+  function toggleTopBar() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY + 10) {
+      topBar.classList.add('nav-up');
+      topBar.classList.remove('nav-down');
+    } else if (lastScrollY - currentScrollY > scrollThreshold) {
+      topBar.classList.add('nav-down');
+      topBar.classList.remove('nav-up');
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  function handleScroll() {
+    animateFadeItems();
+    animateGroupFade();
+    toggleTopBar();
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial run
+  handleScroll();
 });
 </script>
 
