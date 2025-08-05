@@ -425,7 +425,7 @@ footer a:hover {
   top: 0;
   z-index: 5;
   background: rgba(0, 0, 0, 0);
-  padding: 1rem 0;
+  padding: 0rem 0;
   text-align: center;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -651,7 +651,7 @@ footer a:hover {
 }
 
 .team-profile-fade-group {
-  mask-image: radial-gradient(circle at top center, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   mask-size: 100% 100%;
   mask-repeat: no-repeat;
 }
