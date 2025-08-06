@@ -200,7 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const fadeItems = document.querySelectorAll('.fade-item');
   const header = document.getElementById('header-text');
   const topBar = document.querySelector('.top-bar');
-  const triggerLine = 80;
+  const isMobile = window.innerWidth <= 768;
+  const triggerLine = isMobile ? 150 : 80;
+  const effectDistance = isMobile ? 200 : 300;
   const scrollThreshold = 1;
 
   let headerAnimated = false;
@@ -252,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const triggerOffset = group.getBoundingClientRect().top + window.scrollY;
     const effectStart = triggerOffset - 20;
-    const effectDistance = 300;
+    const effectDistance = 200;
     const scrollY = window.scrollY;
     const delta = scrollY - effectStart;
 
@@ -261,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
       group.style.opacity = 1;
       group.style.filter = 'blur(0px)';
     } else if (delta <= effectDistance) {
-      const progress = delta / effectDistance;
+      const progress = Math.min(delta / 250, 1);
       const scale = 1 - progress * 0.5;
       const opacity = 1 - progress;
       const blur = progress * 5;
