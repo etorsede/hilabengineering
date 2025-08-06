@@ -282,10 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleTopBar() {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY + 10) {
+    if (currentScrollY > lastScrollY) {
+      // User is scrolling down
       topBar.classList.add('nav-up');
       topBar.classList.remove('nav-down');
-    } else if (lastScrollY - currentScrollY > scrollThreshold) {
+    } else if (currentScrollY < lastScrollY) {
+      // User is scrolling up
       topBar.classList.add('nav-down');
       topBar.classList.remove('nav-up');
     }
