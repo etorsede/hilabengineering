@@ -171,7 +171,6 @@
       }
     }
 
-    // Smooth scroll for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -209,17 +208,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScrollY = window.scrollY;
   let ticking = false;
 
-  // Header animation complete after delay
   setTimeout(() => { headerAnimated = true; }, 1300);
 
   function animateFadeItems() {
+    const fadeSensitivity = isMobile ? 350 : 200;
     fadeItems.forEach(item => {
       const rect = item.getBoundingClientRect();
       const topOffset = rect.top;
 
       if (topOffset < triggerLine) {
         const past = triggerLine - topOffset;
-        const progress = Math.min(past / 350, 1);
+        const progress = Math.min(past / fadeSensitivity, 1);
         const scale = 1 - progress * 0.4;
         const opacity = 1 - progress;
         const blur = progress * 4;
@@ -279,21 +278,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let isNavHidden = false;
+
   function toggleTopBar() {
-    const currentScrollY = window.scrollY;
+  const currentScrollY = window.scrollY;
+  const scrollDelta = currentScrollY - lastScrollY;
 
-    if (currentScrollY > lastScrollY) {
-      // User is scrolling down
-      topBar.classList.add('nav-up');
-      topBar.classList.remove('nav-down');
-    } else if (currentScrollY < lastScrollY) {
-      // User is scrolling up
-      topBar.classList.add('nav-down');
-      topBar.classList.remove('nav-up');
-    }
-
-    lastScrollY = currentScrollY;
+  if (scrollDelta > 5 && !isNavHidden) {
+    topBar.classList.add('nav-up');
+    topBar.classList.remove('nav-down');
+    isNavHidden = true;
   }
+
+  else if (scrollDelta < -5 && isNavHidden) {
+    topBar.classList.remove('nav-up');
+    topBar.classList.add('nav-down');
+    isNavHidden = false;
+  }
+
+  lastScrollY = currentScrollY;
+}
 
   function handleScroll() {
     animateFadeItems();
