@@ -102,6 +102,12 @@
     margin-top: 0 !important;
     padding-top: 0 !important;
     }
+    #header-text {
+    font-size: 1.5rem !important;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    }
+
   .logo-img {
     height: 30px;
   }
@@ -338,8 +344,13 @@ footer {
 .arrow.right:hover {
   background: #ccc;
 }
+
+
 #about-section {
-  scroll-margin-top: 80px;
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  scroll-margin-top: 40px;
   text-align: center;
   font-size: 2rem;
   max-width: 100%;
@@ -360,6 +371,7 @@ footer {
 
 
 .contact-heading {
+  font-family: 'Allerta Stencil', sans-serif;
   position: absolute;
   top: 20px;
   font-size: 2rem;
@@ -416,8 +428,12 @@ footer a:hover {
 }
 
 #header-text {
-
+  font-family: 'Bungee Hairline', sans-serif;
   position: sticky;
+  font-size: 3rem;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  color: #d4ccdb;
   top: 0;
   z-index: 5;
   background: rgba(0, 0, 0, 0);
@@ -530,6 +546,15 @@ footer a:hover {
   font-family: 'Segoe UI', sans-serif;
   color: white;
   line-height: 1.6;
+}
+
+#about-section h2,
+#contact-section h2{
+  font-family: 'Bungee Hairline', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  color: #d4ccdb;
 }
 
 .intro-section h1 {
