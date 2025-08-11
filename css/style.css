@@ -202,7 +202,7 @@ html {
 
 footer {
   text-align: center;
-  margin-top: 2 0px; /* reduce if it's large */
+  margin-top: 2 0px;
   padding: 10px 0;
 }
 
@@ -347,7 +347,6 @@ footer {
 
 
 #about-section {
-  font-family: "Allerta Stencil", sans-serif;
   font-weight: 400;
   font-style: normal;
   scroll-margin-top: 40px;
@@ -371,7 +370,6 @@ footer {
 
 
 .contact-heading {
-  font-family: 'Allerta Stencil', sans-serif;
   position: absolute;
   top: 20px;
   font-size: 2rem;
