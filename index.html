@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
   <title>Welcome to HILAB Engineering</title>
   <link rel="icon" href="img/favicon-32x32.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +20,7 @@
   </script>
 </head>
 <body class="custom-background">
+<div id="top" style="position: relative; top: -60px;"></div>
 <div class="top-bar">
   <a href="https://hilabengineering.se" class="logo-container">
     <img src="img/HILAB_LOGO.jpg" alt="HILAB Logo" class="logo-img">
@@ -29,42 +33,126 @@
 
 </div>
 
-<div style="height: 30vh;"></div>
+<section id="home-section" class="intro-section">
+  <div class="intro-fade-group">
+  <h1 id="header-text" class="section-heading animate-header">Who We Are</h1>
+  <div class="intro-text">
+  <p class="fade-item">Hi, we are HILAB — a consultant company specializing in hardware-in-the-loop (HIL) development.</p>
+  <p class="fade-item">When the automotive industry shifted toward being more software-defined, it fundamentally changed how systems are built. Instead of integrating decentralized systems from suppliers, today’s vehicles rely on in-house developed software running on centralized ECUs.</p>
+  <p class="fade-item">This change provides more flexibility and value for customers, but it also raises the bar for testing and verification. Now, software needs to meet the high standards expected in modern automotive environments. That's why HIL and SIL test environments are more essential than ever.</p>
+  <p class="fade-item">HILAB's founders, Eric and David, saw the growing need for advanced software testing and the lack of deep expertise in the field — and created HILAB to solve exactly that.</p>
+  <p class="fade-item tagline">
+    We're a company built from the ground up to deliver high-quality, real hardware/software testing —
+    <span class="emphasis">From Sensor To Actuator</span>
+  </p>
+  </div>
+  </div>
+</section>
 
-  <section id="home-section">
-    <h1>Who we are</h1>
-    <p><p>Hi we are Hilab, a consultant company specializing in hardware in the loop development. <br><br> When the automotive industry shifted to be more software defined it was a big change affecting the industry to the core.<br>Instead of integrating decentralized systems with software included from suppliers, the industry now becomes more software defined with in housed developed software on central ECUs.<br>This centralized architecture opens up for more flexibility and customer value but also means that all software that is developed needs to be tested and verified to the high standards of today's automotive industry. In other words, the shift has made HIL and SIL test environments more important than ever.<br>Hilabs founders Eric and David saw the need for software testing and the lack of good competence in the area as an opening to start Hilab.<br><br>A consultant company that to its core is about software testing on real hardware, from sensor to actuator.
-  </section>
-<div style="height: 100vh;"></div>
+<div style="height: 20vh;"></div>
+<section id="about-section">
+  <h2 class="section-heading">About Us</h2>
+  <div class="team-profile-fade-group">
+  <div class="team-profile-container">
+    <!-- Card 1 -->
+    <div class="profile-card" id="card1">
+      <div class="card-inner">
+        <!-- FRONT -->
+        <div class="card-front">
+          <img src="img/Messenger_creation_5313D13E-6D93-42DF-BAB8-610181D672B5.jpeg" alt="David" class="profile-image">
+          <div class="profile-info">
+            <h3>David Carlsson</h3>
+            <p>Co-founder and HIL development Engineer</p>
+            <div class="arrow right" onclick="flipCard(1)">&#8594;</div>
+          </div>
+        </div>
 
+        <!-- BACK -->
+        <div class="card-back">
+          <div class="back-info">
+            <p>
+              David is a development engineer specializing in HIL. With over 6 years of experience
+              in the automotive field, he has worked with almost every aspect of early software
+              development.
+            </p>
+            <p>Email: david@hilabengineering.se</p>
+            <div class="arrow right left-align" onclick="flipCard(1)">&#8592;</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- About Section -->
-  <section id="about-section">
-    <h2>About</h2>
-    <p>Hej, vi heter Eric och David! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </section>
-<div style="height: 100vh;"></div>
+    <!-- Card 2 -->
+        <div class="profile-card" id="card2">
+      <div class="card-inner">
+        <!-- FRONT -->
+        <div class="card-front">
+          <img src="img/alt2_bw.jpg" alt="Eric" class="profile-image">
+          <div class="profile-info">
+            <h3>Eric Torsede</h3>
+            <p>Co-founder and HIL development Engineer</p>
+            <div class="arrow right" onclick="flipCard(2)">&#8594;</div>
+          </div>
+        </div>
 
-  <!-- Contact Section -->
-  <section id="contact-section">
-  <h2>Contact Us</h2>
-  <form action="https://formsubmit.co/eric@hilabengineering.se" method="POST">
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" required><br><br>
+        <!-- BACK -->
+        <div class="card-back">
+          <div class="back-info">
+            <p>
+              Eric is a development engineer specializing in HIL. With over 6 years of experience
+              in the automotive field, he has worked with almost every aspect of early software
+              development.
+              </p>
+              <p>
+               Eric studied Engineering Physics and Electronics at Luleå University Of Technology, while
+              doing summer internships at Volvo Cars HIL department.
+              Since his graduation, he's worked in with HIL development at both Volvo Cars and Trucks in different capacities.
+            </p>
+            <p>Email:  eric@hilabengineering.se</p>
 
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="_replyto" required><br><br>
+            <div class="arrow right left-align" onclick="flipCard(2)">&#8592;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
 
-  <label for="message">Message:</label><br>
-  <textarea id="message" name="message" rows="5" required></textarea><br><br>
+<!-- Contact Section -->
+<div style="height: 20vh;"></div>
+<section id="contact-section" class="custom-background">
+  <h2 class="section-heading contact-heading">Contact Us</h2>
 
-  <button type="submit" class="custom-button">Send</button>
-  </form>
-  </section>
-  <div style="height: 150vh;"></div>
+  <div class="contact-wrapper">
+    <p class="contact-email">
+      Email us at <a href="mailto:info@hilabengineering.se">info@hilabengineering.se</a>
+    </p>
+
+    <form action="https://formsubmit.co/eric@hilabengineering.se" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="_replyto" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="custom-button">Send</button>
+    </form>
+  </div>
+</section>
+
 
   <footer>
     <p>© 2025 HILAB Engineering. All rights reserved.</p>
+    <p>
+    Website developed by
+    <a href="#top" style="color: inherit; text-decoration: underline;">
+      HILAB Engineering
+    </a>
+  </p>
   </footer>
 
 <script>
@@ -86,7 +174,6 @@
       }
     }
 
-    // Smooth scroll for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -101,6 +188,139 @@
       });
     });
   });
+</script>
+<script>
+function flipCard(cardId) {
+  const card = document.getElementById(`card${cardId}`);
+  card.classList.toggle("flipped");
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const group = document.querySelector('.team-profile-fade-group');
+  const fadeItems = document.querySelectorAll('.fade-item');
+  const header = document.getElementById('header-text');
+  const topBar = document.querySelector('.top-bar');
+  const isMobile = window.innerWidth <= 768;
+  const triggerLine = isMobile ? 150 : 80;
+  const effectDistance = isMobile ? 200 : 300;
+  const scrollThreshold = 1;
+
+  let headerAnimated = false;
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  setTimeout(() => { headerAnimated = true; }, 1300);
+
+  function animateFadeItems() {
+    const fadeSensitivity = isMobile ? 350 : 200;
+    fadeItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      const topOffset = rect.top;
+
+      if (topOffset < triggerLine) {
+        const past = triggerLine - topOffset;
+        const progress = Math.min(past / fadeSensitivity, 1);
+        const scale = 1 - progress * 0.4;
+        const opacity = 1 - progress;
+        const blur = progress * 4;
+
+        item.style.transform = `scale(${scale})`;
+        item.style.opacity = opacity;
+        item.style.filter = `blur(${blur}px)`;
+      } else {
+        item.style.transform = 'scale(1)';
+        item.style.opacity = 1;
+        item.style.filter = 'blur(0px)';
+      }
+    });
+
+    if (headerAnimated && fadeItems.length) {
+      const lastItem = fadeItems[fadeItems.length - 1];
+      const lastRect = lastItem.getBoundingClientRect();
+
+      if (lastRect.bottom < triggerLine + 50) {
+        const headerFade = Math.max(0, lastRect.bottom / 100);
+        header.style.opacity = headerFade;
+        header.style.transform = `scale(${headerFade})`;
+      } else {
+        header.style.opacity = 1;
+        header.style.transform = 'scale(1)';
+      }
+    }
+  }
+
+  function animateGroupFade() {
+    if (!group) return;
+
+    const triggerOffset = group.getBoundingClientRect().top + window.scrollY;
+    const effectStart = triggerOffset - 20;
+    const effectDistance = 200;
+    const scrollY = window.scrollY;
+    const delta = scrollY - effectStart;
+
+    if (delta <= 0) {
+      group.style.transform = 'scale(1) translateY(0)';
+      group.style.opacity = 1;
+      group.style.filter = 'blur(0px)';
+    } else if (delta <= effectDistance) {
+      const progress = Math.min(delta / 250, 1);
+      const scale = 1 - progress * 0.5;
+      const opacity = 1 - progress;
+      const blur = progress * 5;
+      const translateY = -progress * 30;
+
+      group.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+      group.style.opacity = opacity;
+      group.style.filter = `blur(${blur}px)`;
+    } else {
+      group.style.transform = 'scale(0.5) translateY(-30px)';
+      group.style.opacity = 0;
+      group.style.filter = 'blur(5px)';
+    }
+  }
+
+  let isNavHidden = false;
+
+  function toggleTopBar() {
+  const currentScrollY = window.scrollY;
+  const scrollDelta = currentScrollY - lastScrollY;
+
+  if (scrollDelta > 5 && !isNavHidden) {
+    topBar.classList.add('nav-up');
+    topBar.classList.remove('nav-down');
+    isNavHidden = true;
+  }
+
+  else if (scrollDelta < -5 && isNavHidden) {
+    topBar.classList.remove('nav-up');
+    topBar.classList.add('nav-down');
+    isNavHidden = false;
+  }
+
+  lastScrollY = currentScrollY;
+}
+
+  function handleScroll() {
+    animateFadeItems();
+    animateGroupFade();
+    toggleTopBar();
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial run
+  handleScroll();
+});
 </script>
 
 
