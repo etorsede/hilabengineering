@@ -11,18 +11,16 @@
     padding: 3rem 2rem 2rem 2rem;
 }
 
-.custom-background::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../img/Background1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    z-index: -1;
+body {
+    background-color: #0d0d0f;
+    margin: 0;
+    min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+    .custom-background {
+        background-attachment: scroll; /* don’t kill the image */
+    }
 }
 
 .custom-button {
@@ -150,7 +148,7 @@
 }
 
 .logo-img {
-    height: 40px;
+    height: 120px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -164,6 +162,13 @@
 
 p {
     margin-top: 10px;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/daggersquare/DAGGERSQUARE.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .about-container {
