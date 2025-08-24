@@ -22,14 +22,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="1"
-     inkscape:cx="602.49998"
-     inkscape:cy="367.49999"
+     inkscape:cx="603"
+     inkscape:cy="367.5"
      inkscape:window-width="2560"
      inkscape:window-height="1369"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg9"
+     inkscape:current-layer="g9"
      showguides="true" />
   <defs
      id="defs4">
@@ -1311,19 +1311,12 @@
      transform="matrix(2.6147548,0,0,2.605772,-200.26423,-447.07568)"
      id="g9"
      style="fill:#490097;fill-opacity:1">
-    <text
-       x="265.25391"
-       y="338.85608"
-       font-family="Arial, Helvetica, sans-serif"
-       font-weight="800"
-       font-size="283.867px"
-       letter-spacing="2.61509"
-       fill="url(#gIL)"
+    <path
+       style="font-size:185.582px;font-family:DAGGERSQUARE;-inkscape-font-specification:DAGGERSQUARE;letter-spacing:2.61509;fill:#9108ce;stroke-width:0.843561"
+       d="M 265.25391,338.85608 V 230.66177 h 24.49682 v 108.19431 z m 0,-139.1865 v 23.01217 l 24.49682,-7.42328 v -15.58889 z m 69.23889,139.1865 v -139.1865 h -24.49682 v 139.1865 z m 118.60371,-83.5119 c 0,-13.73307 -10.94934,-24.68241 -24.68241,-24.68241 h -56.41693 l -7.42328,24.68241 h 59.01508 c 2.78373,0 4.82513,2.0414 4.82513,4.82513 v 54.18995 h -44.16852 c -2.78373,0 -5.01071,-2.22699 -5.01071,-5.01072 v -7.42328 c 0,-2.59815 2.22698,-4.82513 5.01071,-4.82513 h 35.075 l -7.2377,-24.68241 h -32.84801 c -13.54749,0 -24.49683,11.13492 -24.49683,24.68241 v 17.25913 c 0,13.54748 10.94934,24.49682 24.49683,24.49682 h 36.93082 l 12.24841,-12.24841 v 12.24841 h 24.68241 z m 118.60384,0 c 0,-13.73307 -10.94934,-24.68241 -24.68241,-24.68241 h -34.14709 l -7.42328,24.68241 h 36.74524 c 2.78373,0 4.82513,2.0414 4.82513,4.82513 v 49.17923 c 0,2.78373 -2.0414,5.01072 -4.82513,5.01072 h -44.3541 V 199.66958 h -24.49682 v 139.1865 h 24.49682 v -12.24841 l 12.434,12.24841 h 36.74523 c 13.73307,0 24.68241,-10.94934 24.68241,-24.49682 z"
        id="text9"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:185.582px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#9108ce;fill-opacity:1;stroke-width:0.843561"
-       transform="scale(0.92834598,1.0771846)"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DAGGERSQUARE;-inkscape-font-specification:DAGGERSQUARE;fill:#9108ce;fill-opacity:1;stroke-width:0.843561"
-         id="tspan15">ilab</tspan></text>
+       transform="scale(0.92834598,1.0771846)"
+       aria-label="ilab" />
   </g>
   <path
      style="fill:#6c39fe;fill-opacity:1;stroke-width:0.842215"
