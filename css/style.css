@@ -33,8 +33,22 @@
     transform: scale(0.98);
 }
 
+@font-face {
+  font-family: 'daggersquare';
+  src: url('fonts/daggersquare/DAGGERSQUARE.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'daggersquare';
+  src: url('/fonts/daggersquare/DAGGERSQUARE OBLIQUE.otf') format('truetype');
+  font-weight: normal;
+  font-style: oblique;
+}
+
 #header-text {
-  font-family: 'Bungee Hairline', sans-serif;
+  font-family: 'daggersquare', sans-serif;
   position: sticky;
   font-size: 3rem;
   letter-spacing: 1.5px;
@@ -520,10 +534,11 @@ footer a:hover {
   }
 
   .profile-image {
-    width: 60%;
-    height: 300px;
+    flex: 0 0 60%;
+    height: auto;
+    max-height: 300px;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px 0 0 15px;
   }
 
   .profile-info {
