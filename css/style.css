@@ -35,14 +35,14 @@
 
 @font-face {
   font-family: 'daggersquare';
-  src: url('fonts/daggersquare/DAGGERSQUARE.otf') format('truetype');
+  src: url('../fonts/daggersquare/DAGGERSQUARE.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'daggersquare';
-  src: url('/fonts/daggersquare/DAGGERSQUARE OBLIQUE.otf') format('truetype');
+  font-family: 'daggersquare oblique';
+  src: url('../fonts/daggersquare/DAGGERSQUARE OBLIQUE.otf') format('opentype');
   font-weight: normal;
   font-style: oblique;
 }
@@ -565,7 +565,7 @@ footer a:hover {
 
 }
 
-@media (max-width: 360px) {
+@media (max-width: 700px) {
   .team-profile-container {
     display: flex;
     flex-direction: column;
@@ -573,6 +573,80 @@ footer a:hover {
     gap: 0px;
     padding: 0;
     margin-top: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  .profile-card {
+    width: 70%;
+    max-width: 900px;
+    margin: 0;
+    height: auto;
+    padding: 0px 0px 10px;
+    overflow: visible;
+  }
+
+  .card-inner,
+  .card-front,
+  .card-back {
+    height: 270px;
+    flex-direction: row;
+    border: none;
+    margin: 0;
+    font-size: 0.1rem !important;
+
+  }
+
+  .card-inner {
+    min-height: 300px;
+  }
+
+  .profile-image {
+    flex: 0 0 55%;
+    height: 200;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+  }
+
+    .profile-info {
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    overflow: visible;
+    word-wrap: break-word;
+    font-size: 0.65rem;
+  }
+
+  .arrow.right {
+    right: 1.5px;
+  bottom: 2.8px;
+  font-size: 1.5rem;
+  padding: 6px 10px;
+  border-radius: 50%;
+  transform: translateY(1px);
+}
+ .arrow.right.left-align {
+    transform: translateY(-1px);
+  }
+.profile-card:nth-child(2) {
+    margin-top: -23px;
+
+}
+}
+
+@media (max-width: 360px) {
+  .team-profile-container {
+    margin-top: -10px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    padding: 0;
     box-sizing: border-box;
     width: 100%;
     font-size: 0.85rem !important;
@@ -590,7 +664,7 @@ footer a:hover {
   .card-inner,
   .card-front,
   .card-back {
-    height: 270px;
+    height: 300px;
     flex-direction: row;
     border: none;
     margin: 0;
@@ -624,7 +698,7 @@ footer a:hover {
     right: 1.5px;
   bottom: 2.8px;
   font-size: 1.5rem;
-  padding: 6px 10px;
+  padding: 3px 5px;
   border-radius: 50%;
   transform: translateY(1px);
 }
@@ -632,10 +706,39 @@ footer a:hover {
     transform: translateY(-1px);
   }
 .profile-card:nth-child(2) {
-    margin-top: -17px; /* move it up by 10px */
+    margin-top: -2px;
 
 }
+   div[style*="height: 20vh"] {
+    height: 18vh !important;
 }
+
+  #about-section {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    position: relative;
+    top: -15px; /* Moves the whole section up */
+  }
+
+  #about-section h2 {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    font-size: 0.75rem; /* Smaller, but readable */
+    line-height: 1; /* Reduce vertical space */
+    font-family: 'Bungee Harline', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    color: #d4ccdb;
+    position: relative;
+    top: -10px; /* Moves text up inside the section */
+    z-index: 3;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+}
+
 
 .intro-section {
   max-width: 900px;
